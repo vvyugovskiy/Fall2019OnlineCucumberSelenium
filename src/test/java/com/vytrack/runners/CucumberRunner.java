@@ -1,10 +1,9 @@
 package com.vytrack.runners;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
 
-@RunWith(Cucumber.class) // allows custom Test annotations
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+
 @CucumberOptions(           /* need to know where step_definitions and features folders */
         glue = "com/vytrack/step_definitions",      /*  path from source root  */
         features = "src/test/resources/",    /*  path from content root */
@@ -12,7 +11,7 @@ import org.junit.runner.RunWith;
         strict = false,  //==> when false, unimplemented steps will not be shown as exception/ error.Will only be mentioned in the console
                         //==>  when true, unimplemented steps will be thrown as if there is an exception
 
-        tags = "@view_calendar_events",
+        tags = "@smoke_test",
         plugin = {
                 "html:target/default-report",
                 "json:target/cucumber1.json",
@@ -24,7 +23,7 @@ import org.junit.runner.RunWith;
                                                 // or ==> scenarios that has one of it will run
 
 ) // parameterization for steps execution
-public class CucumberRunner {
+public class CucumberRunner extends AbstractTestNGCucumberTests {
 
 
 }
