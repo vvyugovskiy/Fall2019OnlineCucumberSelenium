@@ -31,7 +31,8 @@ public class VehiclesPage extends AbstractPageBase {
     @FindBy(xpath = "(//button[@type='submit'])[1]")
     private WebElement submit;
 
-    public void setLicencePlateInput(String licencePlate) {
+    public void setLicencePlateInput(String licencePlate)
+    {
         BrowserUtilities.waitForPageToLoad(20);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='custom_entity_type[LicensePlate]']")));
         wait.until(ExpectedConditions.visibilityOf(licencePlateInput));
@@ -39,6 +40,8 @@ public class VehiclesPage extends AbstractPageBase {
     }
 
     public void setDriverInput(String driver) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='custom_entity_type[Driver]']")));
+        wait.until(ExpectedConditions.visibilityOf(driverInput));
         driverInput.sendKeys(driver);
     }
 
@@ -65,7 +68,7 @@ public class VehiclesPage extends AbstractPageBase {
     }
 
     public String getCarGeneralInfo(String parameter) {
-        String xpath = "//label[text()='"+parameter+"']/following-sibling::div/div";
+        String xpath = "//label[text()='" + parameter + "']/following-sibling::div/div";
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
         return driver.findElement(By.xpath(xpath)).getText().trim();
     }

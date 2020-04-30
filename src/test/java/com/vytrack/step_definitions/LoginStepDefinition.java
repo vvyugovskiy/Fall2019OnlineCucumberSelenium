@@ -17,11 +17,13 @@ public class LoginStepDefinition {
     @Given("user is on the login page")
     public void user_is_on_the_login_page() {
         System.out.println("Open login page");
+
         // -Dbrowser=firefox
         String env = "qa2";
         if (System.getProperty("env") != null) {
             env = System.getenv("env");
         }
+
         String URL = ConfigurationReader.getProperty(env);
         System.out.println("URL :: " + URL);
         Driver.getDriver().get(URL);
