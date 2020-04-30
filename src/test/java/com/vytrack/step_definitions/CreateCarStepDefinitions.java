@@ -21,7 +21,7 @@ public class CreateCarStepDefinitions {
 //            | SDET          | Pro Racer | Rome, Italy | 2020       | Red   | 0 row
 
     @Then("user creates a car with following info:")
-    public void user_creates_a_car_with_following_info(List<Map<String, String>> dataTable) {
+    public void  user_creates_a_car_with_following_info(List<Map<String, String>> dataTable) {
         System.out.println(dataTable);
         for (Map<String, String> row : dataTable) {
             vehiclesPage.setLicencePlateInput(row.get("License Plate"));

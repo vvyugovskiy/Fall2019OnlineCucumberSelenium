@@ -68,13 +68,14 @@ public class LoginStepDefinition {
     @Then("user name should be {string}")
     public void user_name_should_be(String userType)
     {
+
         Assert.assertEquals(userType, loginPage.getCurrentUserName());
     }
 
     @When("user logs in as {string}")
-    public void user_logs_in_as(String string)
+    public void user_logs_in_as(String userType)
     {
-        loginPage.login(string);
+        loginPage.login(userType);
 
     }
 

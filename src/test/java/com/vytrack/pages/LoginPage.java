@@ -7,6 +7,8 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.awt.*;
+
 public class LoginPage extends AbstractPageBase {
 
     @FindBy(id = "prependedInput")
@@ -52,11 +54,13 @@ public class LoginPage extends AbstractPageBase {
      * Login as a default user
      * Credentials will be retrieved from configuration.properties file
      */
-    public void login() {
+    public void login() throws AWTException {
         username.sendKeys(ConfigurationReader.getProperty("store_manager"));
         password.sendKeys(ConfigurationReader.getProperty("password"), Keys.ENTER);
         BrowserUtilities.waitForPageToLoad(10);
         BrowserUtilities.wait(3);
+
+
     }
 
     /**
