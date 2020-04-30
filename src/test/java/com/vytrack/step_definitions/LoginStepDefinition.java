@@ -85,6 +85,7 @@ public class LoginStepDefinition {
     @Then("user verifies that page title is {string}")
     public void user_verifies_that_page_title_is(String string) {
         System.out.println("Verify that page title is: " + string);
+        BrowserUtilities.waitForPageToLoad(20);
         Assert.assertEquals(string, Driver.getDriver().getTitle());
 
     }
