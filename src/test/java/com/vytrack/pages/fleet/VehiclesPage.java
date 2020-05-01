@@ -33,7 +33,8 @@ public class VehiclesPage extends AbstractPageBase {
 
     public void setLicencePlateInput(String licencePlate)
     {
-        BrowserUtilities.waitForPageToLoad(20);
+
+        BrowserUtilities.waitForPageToLoad(30);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[name='custom_entity_type[LicensePlate]']")));
         wait.until(ExpectedConditions.visibilityOf(licencePlateInput));
         licencePlateInput.sendKeys(licencePlate);

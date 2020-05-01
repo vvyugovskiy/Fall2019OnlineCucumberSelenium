@@ -1,6 +1,7 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.pages.fleet.VehiclesPage;
+import com.vytrack.utilities.BrowserUtilities;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 
@@ -14,6 +15,7 @@ public class CreateCarStepDefinitions {
     @Then("user click on create a car button")
     public void user_click_on_create_a_car_button() {
         System.out.println("User click on create a car button");
+        BrowserUtilities.waitForPageToLoad(20);
         vehiclesPage.clickToCreateCar();
     }
 
