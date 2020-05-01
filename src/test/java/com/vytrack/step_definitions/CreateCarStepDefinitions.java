@@ -40,6 +40,7 @@ public class CreateCarStepDefinitions {
     @Then("user verifies that car info is displayed:")
     public void user_verifies_that_car_info_is_displayed(List<Map<String, String>> dataTable) {
         BrowserUtilities.waitForPageToLoad(20);
+        BrowserUtilities.wait(3);
         for (Map<String, String> row : dataTable) {
             Assert.assertEquals(row.get("License Plate"), vehiclesPage.getCarGeneralInfo("License Plate"));
             Assert.assertEquals(row.get("Driver"), vehiclesPage.getCarGeneralInfo("Driver"));
