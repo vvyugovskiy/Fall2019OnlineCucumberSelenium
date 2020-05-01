@@ -9,5 +9,5 @@ Feature: View all calendar events
     Then View Per Page menu should have following options
       | 10  |
       | 25  |
-     | 50  |
+      | 50  |
       | 100 |
