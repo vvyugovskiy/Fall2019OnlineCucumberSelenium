@@ -1,7 +1,7 @@
-@create_car
+#@create_car
 Feature: Create a car
   As user, I want to be able to add new cars
-
+  @create_car
   Scenario: Add new car
     Given user is on the login page
     When user logs in as a sales manager

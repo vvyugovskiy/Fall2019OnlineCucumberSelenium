@@ -16,38 +16,6 @@
 
     <profiles>
         <profile>
-            <id>Regression</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.8.1</version>
-                        <configuration>
-                            <source>8</source>
-                            <target>8</target>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M4</version>
-                        <configuration>
-                            <!-- for parallel running Cucumber-->
-                            <parallel>methods</parallel>
-                            <useUnlimitedThreads>true</useUnlimitedThreads>
-                            <includes>
-                                <!-- for  run class or classes-->
-                                <include>**/RegressionRunner.java</include>
-                            </includes>
-                            <testFailureIgnore>true</testFailureIgnore>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-
-        <profile>
             <id>Smoke</id>
             <build>
                 <plugins>
@@ -70,7 +38,7 @@
                             <useUnlimitedThreads>true</useUnlimitedThreads>
                             <includes>
                                 <!-- for  run class or classes-->
-                                <include>**/SmokeTestRunner.java</include>
+                                <include>**/*SmokeRunner.java</include>
                             </includes>
                             <testFailureIgnore>true</testFailureIgnore>
                         </configuration>
@@ -78,6 +46,40 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>Regression</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.8.1</version>
+                        <configuration>
+                            <source>8</source>
+                            <target>8</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M4</version>
+                        <configuration>
+                            <!-- for parallel running Cucumber-->
+                            <parallel>methods</parallel>
+                            <useUnlimitedThreads>true</useUnlimitedThreads>
+                            <includes>
+                                <!-- for  run class or classes-->
+                                <include>**/*RegressionRunner.java</include>
+                            </includes>
+                            <testFailureIgnore>true</testFailureIgnore>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
     </profiles>
 
     <!--to fix java 5 version issue -->
@@ -104,7 +106,7 @@
 <!--                    <perCoreThreadCount>false</perCoreThreadCount>-->
 <!--                    <forkCount>2C</forkCount>-->
                     <includes>
-                        <include>**/CucumberRunner.java</include>
+                        <include>**/*CucumberRunner.java</include>
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                 </configuration>

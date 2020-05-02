@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
         strict = false,  //==> when false, unimplemented steps will not be shown as exception/ error.Will only be mentioned in the console
                         //==>  when true, unimplemented steps will be thrown as if there is an exception
 
-        tags = "@create_car",
-        plugin = {
+        tags = ""
+        ,plugin = {
                 "html:target/default-report",
                 "json:target/cucumber.json",
                 "rerun:target/rerun.txt"
