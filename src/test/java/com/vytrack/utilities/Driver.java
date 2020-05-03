@@ -18,9 +18,9 @@ public class Driver {
 
     //same for everyone
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
-//    private static ChromeOptions chromeOptions;
-//    private static FirefoxOptions firefoxOptions;
-//    private static URL url;
+    private static ChromeOptions chromeOptions;
+    private static FirefoxOptions firefoxOptions;
+    private static URL url;
 
     //so no one can create object of Driver class
     //everyone should call static getter method instead
@@ -51,7 +51,7 @@ public class Driver {
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    ChromeOptions chromeOptions = new ChromeOptions();
+                    chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--start-maximized");
                     driverPool.set(new ChromeDriver(chromeOptions));
                     break;
@@ -95,7 +95,7 @@ public class Driver {
                 case "firefox-headless":
                     //to run chrome without interface (headless mode)
                     WebDriverManager.firefoxdriver().setup();
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
+                    firefoxOptions = new FirefoxOptions();
                     firefoxOptions.setHeadless(true);
                     driverPool.set(new FirefoxDriver(firefoxOptions));
                     break;
