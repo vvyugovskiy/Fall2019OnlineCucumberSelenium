@@ -18,8 +18,6 @@ public class Driver {
 
     //same for everyone
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
-    private static ChromeOptions chromeOptions;
-    private static FirefoxOptions firefoxOptions;
     private static URL url;
 
     //so no one can create object of Driver class
@@ -51,7 +49,7 @@ public class Driver {
             switch (browser) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    chromeOptions = new ChromeOptions();
+                    ChromeOptions chromeOptions = new ChromeOptions();
                     chromeOptions.addArguments("--start-maximized");
                     driverPool.set(new ChromeDriver(chromeOptions));
                     break;
@@ -76,7 +74,7 @@ public class Driver {
                         //we create object of URL and specify
                         //selenium grid hub as a parameter
                         //make sure it ends with /wd/hub
-                        URL url = new URL("http://54.157.252.238:4444/wd/hub");
+                        URL url = new URL("http://34.236.36.95:4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         //desiredCapabilities used to specify what kind of node
                         //is required for testing
@@ -95,7 +93,7 @@ public class Driver {
                 case "firefox-headless":
                     //to run chrome without interface (headless mode)
                     WebDriverManager.firefoxdriver().setup();
-                    firefoxOptions = new FirefoxOptions();
+                    FirefoxOptions firefoxOptions = new FirefoxOptions();
                     firefoxOptions.setHeadless(true);
                     driverPool.set(new FirefoxDriver(firefoxOptions));
                     break;
