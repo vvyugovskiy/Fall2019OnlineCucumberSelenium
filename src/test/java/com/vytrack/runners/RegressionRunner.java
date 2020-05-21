@@ -11,7 +11,9 @@ import org.junit.runner.RunWith;
         dryRun = false,
         strict = false,
         tags = "not @smoke_test",
+        monochrome = true,
         plugin = {
+                "pretty",
                 "html:target/default-report-for-regression",
                 "json:target/cucumber_regression.json",
                 "rerun:target/rerun.txt"
